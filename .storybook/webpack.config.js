@@ -1,3 +1,5 @@
+const autoprefixer = require('autoprefixer')
+
 module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.tsx?$/,
@@ -9,6 +11,36 @@ module.exports = ({ config }) => {
         }
       },
       require.resolve("react-docgen-typescript-loader")
+    ]
+  })
+
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: [
+      {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 2,
+          sourceMap: true
+        }
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          sourceMap: true,
+          plugins: [
+            autoprefixer({
+              grid: true
+            })
+          ]
+        }
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true
+        }
+      }
     ]
   })
 

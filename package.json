@@ -1,0 +1,22 @@
+{
+  "name": "shokken-ui",
+  "version": "1.0.0",
+  "description": "UI Components for Shokken",
+  "main": "index.js",
+  "repository": "https://github.com/kazushisan/shokken-ui.git",
+  "author": "Kazushi Konosu <kazushi@konosu.me>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-actions": "^5.1.3",
+    "@storybook/addon-links": "^5.1.3",
+    "@storybook/addons": "^5.1.3",
+    "@storybook/react": "^5.1.3",
+    "babel-loader": "^8.0.6"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}

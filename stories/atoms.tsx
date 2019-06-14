@@ -2,9 +2,25 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { linkTo } from '@storybook/addon-links'
+// import { linkTo } from '@storybook/addon-links'
+// import { withKnobs } from '@storybook/addon-knobs'
 
-import { Button, Welcome } from '@storybook/react/demo'
+import Button from '../components/atoms/Button'
+
+const stories = storiesOf('atoms', module)
+// stories.addDecorator(withKnobs)
+
+stories.add('Button', () => {
+
+  return (
+    <Button
+      color="primary"
+      onClick={action('clicked')}
+    >ボタン</Button>
+  )
+})
+
+
 
 // storiesOf('Welcome', module).add('to Storybook', () => (
 //   <Welcome showApp={linkTo('Button')} />

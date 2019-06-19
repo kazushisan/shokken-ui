@@ -15,7 +15,7 @@ const Input = styled.input`
   font-size: inherit;
 
   &:focus {
-    border-color: #5DB7DE;
+    border-color: #5db7de;
   }
 
   &:disabled {

@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-
 import Button from '../components/atoms/Button'
 import Input from '../components/atoms/Input'
 
@@ -20,7 +19,7 @@ stories.add('Button', () => {
   return (
     <Wrap>
       <Button color="primary" onClick={action('clicked')}>
-        { label }
+        {label}
       </Button>
     </Wrap>
   )
@@ -31,7 +30,7 @@ stories.add('Input', () => {
     <Wrap>
       <Input color="primary" placeholder="入力してください..." />
     </Wrap>
-  ) 
+  )
 })
 
 // storiesOf('Welcome', module).add('to Storybook', () => (

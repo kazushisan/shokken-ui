@@ -54,6 +54,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
 
+  /* stylelint-enable */
   input::placeholder {
     color: rgba(#000, 0.2);
   }

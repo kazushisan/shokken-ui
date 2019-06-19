@@ -11,16 +11,12 @@ const stories = storiesOf('atoms', module)
 // stories.addDecorator(withKnobs)
 
 stories.add('Button', () => {
-
   return (
-    <Button
-      color="primary"
-      onClick={action('clicked')}
-    >ボタン</Button>
+    <Button color="primary" onClick={action('clicked')}>
+      ボタン
+    </Button>
   )
 })
-
-
 
 // storiesOf('Welcome', module).add('to Storybook', () => (
 //   <Welcome showApp={linkTo('Button')} />

@@ -16,8 +16,7 @@
 			1,
 			{
 				"extensions": [
-					".tsx",
-					".jsx"
+					".tsx"
 				]
 			}
 		],

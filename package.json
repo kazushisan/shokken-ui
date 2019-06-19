@@ -45,7 +45,7 @@
     "build-storybook": "build-storybook",
     "lint": "yarn lint:ts && yarn lint:css",
     "lint:ts": "eslint --ext .ts,tsx ./",
-    "lint:css": "stylelint './**/*.tsx'",
+    "lint:css": "stylelint './**/*.tsx' './**/*.ts'",
     "lint:fix": "yarn lint:ts --fix && yarn lint:css --fix"
   }
 }

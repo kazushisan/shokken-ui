@@ -16,8 +16,9 @@ interface Props {
 
 const Button = styled.button`
   background-color: ${(props: Props) =>
-    props.color === 'primary' ? '5941A9' : '#eee'};
-  color: rgba(#000, 0.6);
+    props.color === 'primary' ? '#5DB7DE' : '#eee'};
+  color: ${(props: Props) =>
+    props.color === 'primary' ? '#fff' : 'rgba(#000, 0.6)'};
   display: block;
   box-sizing: border-box;
   width: 100%;

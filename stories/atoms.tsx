@@ -1,20 +1,37 @@
 import React from 'react'
+import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
-// import { withKnobs } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
+
 
 import Button from '../components/atoms/Button'
+import Input from '../components/atoms/Input'
 
+const Wrap = styled.div`
+  margin: 20px;
+`
 const stories = storiesOf('atoms', module)
-// stories.addDecorator(withKnobs)
+stories.addDecorator(withKnobs)
 
 stories.add('Button', () => {
+  const label = text('Label', 'ボタンのラベル')
   return (
-    <Button color="primary" onClick={action('clicked')}>
-      ボタン
-    </Button>
+    <Wrap>
+      <Button color="primary" onClick={action('clicked')}>
+        { label }
+      </Button>
+    </Wrap>
   )
+})
+
+stories.add('Input', () => {
+  return (
+    <Wrap>
+      <Input color="primary" placeholder="入力してください..." />
+    </Wrap>
+  ) 
 })
 
 // storiesOf('Welcome', module).add('to Storybook', () => (

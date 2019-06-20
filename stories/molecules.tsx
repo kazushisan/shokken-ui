@@ -15,16 +15,11 @@ stories.addDecorator(withKnobs)
 
 stories.add('LoginForm', () => {
   const label = text('Label', 'ログイン')
-  const form1 = text('form1', 'ユーザー名を入力してください')
-  const form2 = text('form2', 'パスワードを入力してください')
+  const inputName = text('inputName', 'ユーザー名を入力してください')
+  const inputPass = text('inputPass', 'パスワードを入力してください')
   return (
     <Wrap>
-      <LoginForm
-        color="primary"
-        form1={form1}
-        form2={form2}
-        label={label}
-      />
+      <LoginForm color="primary" inputName={inputName} inputPass={inputPass} label={label} />
     </Wrap>
   )
 })

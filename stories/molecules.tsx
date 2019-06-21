@@ -17,9 +17,23 @@ stories.add('LoginForm', () => {
   const label = text('Label', 'ログイン')
   const inputName = text('inputName', 'ユーザー名を入力してください')
   const inputPass = text('inputPass', 'パスワードを入力してください')
+
+  constructor(props) {
+    super(props)
+    this.state = { name : '', pass : '' }
+  }
+
+  const func{}
+
   return (
     <Wrap>
-      <LoginForm color="primary" inputName={inputName} inputPass={inputPass} label={label} />
+      <LoginForm
+        color="primary"
+        inputName={inputName}
+        inputPass={inputPass}
+        label={label}
+        func={this.func}
+      />
     </Wrap>
   )
 })

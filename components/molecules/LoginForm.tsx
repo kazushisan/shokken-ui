@@ -1,62 +1,67 @@
 import React from 'react'
+import styled from 'styled-components'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
-import styled from 'styled-components'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 300px;
-  `
-
-const Tytle = styled.p`
-  font-size: 20px;
-  `
+const Item = styled.div`
+  margin: 8px;
+`
 
 interface Props {
-  form1: string
-  form2: string
+  inputName: string
+  inputPass: string
   label: string
 }
 
 class LoginForm extends React.Component<Props> {
   constructor(props) {
     super(props)
-    this.state = { name: '', pass: '' }
+    this.state = { name : '', pass : '' }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.onClick = this.onClick.bind(this)
   }
 
   handleChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const id = target.id;
+    const { target } = event
+    const { value } = target
+    const { id } = target
 
     this.setState({
-      [id] : value
-    });
+      [id]: value
+    })
   }
 
-  onClick(event) {
-
-  }
+  onClick = () => {
+    this.props.func(this.state.name, this.state.pass);
+  };
 
   render() {
     return (
-      <Container>
-        <Tytle>Login</Tytle>
-        <Input id="name" color="primary" placeholder={this.props.inputName} onChange={this.handleChange}/>
-        <Input id="pass" color="primary" placeholder={this.props.inputPass} onChange={this.handleChange}/>
-        <Button color="primary" onClick={this.onClick}>
-          {this.props.label}
-        </Button>
-        {this.state.name}
-        {this.state.pass}
-      </Container>
+      <div style={{ textAlign: 'center'}}>
+        <Item>
+          <p>Log in</p>
+        </Item>
+        <Item style={{marginTop: 40}}>
+          <Input
+            id="name"
+            placeholder={this.props.inputName}
+            onChange={this.handleChange}
+          />
+        </Item>
+        <Item>
+          <Input
+            id="pass"
+            placeholder={this.props.inputPass}
+            onChange={this.handleChange}
+          />
+        </Item>
+        <Item  style={{ marginTop: 40 }}>
+          <Button color="primary" onClick={this.onClick}>
+            {this.props.label}
+          </Button>
+        </Item>
+      </div>
     )
   }
 }

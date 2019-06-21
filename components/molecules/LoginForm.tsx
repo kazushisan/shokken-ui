@@ -11,15 +11,16 @@ interface Props {
   inputName: string
   inputPass: string
   label: string
+  onClick: (name: string, pass: string) => void
 }
 
 class LoginForm extends React.Component<Props> {
   constructor(props) {
     super(props)
-    this.state = { name : '', pass : '' }
+    this.state = { name: '', pass: '' }
 
     this.handleChange = this.handleChange.bind(this)
-    this.onClick = this.onClick.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleChange(event) {
@@ -32,19 +33,21 @@ class LoginForm extends React.Component<Props> {
     })
   }
 
-  onClick = () => {
-    this.props.func(this.state.name, this.state.pass);
-  };
+  handleClick() {
+    this.props.onClick(this.state.name, this.state.pass)
+  }
+
 
   render() {
     return (
-      <div style={{ textAlign: 'center'}}>
+      <div style={{ textAlign: 'center' }}>
         <Item>
           <p>Log in</p>
         </Item>
-        <Item style={{marginTop: 40}}>
+        <Item style={{ marginTop: 40 }}>
           <Input
             id="name"
+            name="name"
             placeholder={this.props.inputName}
             onChange={this.handleChange}
           />
@@ -52,12 +55,14 @@ class LoginForm extends React.Component<Props> {
         <Item>
           <Input
             id="pass"
+            name="pass"
+            type="password"
             placeholder={this.props.inputPass}
             onChange={this.handleChange}
           />
         </Item>
-        <Item  style={{ marginTop: 40 }}>
-          <Button color="primary" onClick={this.onClick}>
+        <Item style={{ marginTop: 40 }}>
+          <Button color="primary" onClick={this.handleClick}>
             {this.props.label}
           </Button>
         </Item>

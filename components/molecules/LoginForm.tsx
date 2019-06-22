@@ -33,8 +33,9 @@ class LoginForm extends React.Component<Props> {
     })
   }
 
-  handleClick() {
+  handleClick(event) {
     this.props.onClick(this.state.name, this.state.pass)
+    document.form.reset();
   }
 
 
@@ -44,23 +45,25 @@ class LoginForm extends React.Component<Props> {
         <Item>
           <p>Log in</p>
         </Item>
-        <Item style={{ marginTop: 40 }}>
-          <Input
-            id="name"
-            name="name"
-            placeholder={this.props.inputName}
-            onChange={this.handleChange}
-          />
-        </Item>
-        <Item>
-          <Input
-            id="pass"
-            name="pass"
-            type="password"
-            placeholder={this.props.inputPass}
-            onChange={this.handleChange}
-          />
-        </Item>
+        <form name="form">
+          <Item style={{ marginTop: 40 }}>
+            <Input
+              id="name"
+              name="name"
+              placeholder={this.props.inputName}
+              onChange={this.handleChange}
+            />
+          </Item>
+          <Item>
+            <Input
+              id="pass"
+              name="pass"
+              type="password"
+              placeholder={this.props.inputPass}
+              onChange={this.handleChange}
+            />
+          </Item>
+        </form>
         <Item style={{ marginTop: 40 }}>
           <Button color="primary" onClick={this.handleClick}>
             {this.props.label}

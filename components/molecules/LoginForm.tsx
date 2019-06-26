@@ -33,13 +33,15 @@ class LoginForm extends React.Component<Props> {
     })
   }
 
-  handleClick(event) {
-    this.props.onClick(this.state.name, this.state.pass)
-    document.form.reset();
+  handleClick() {
+    const { name, pass } = this.state
+    const { onClick } = this.props
+    onClick(name, pass)
+    document.form.reset()
   }
 
-
   render() {
+    const { inputName, inputPass, label } = this.props
     return (
       <div style={{ textAlign: 'center' }}>
         <Item>
@@ -50,7 +52,7 @@ class LoginForm extends React.Component<Props> {
             <Input
               id="name"
               name="name"
-              placeholder={this.props.inputName}
+              placeholder={inputName}
               onChange={this.handleChange}
             />
           </Item>
@@ -59,14 +61,14 @@ class LoginForm extends React.Component<Props> {
               id="pass"
               name="pass"
               type="password"
-              placeholder={this.props.inputPass}
+              placeholder={inputPass}
               onChange={this.handleChange}
             />
           </Item>
         </form>
         <Item style={{ marginTop: 40 }}>
           <Button color="primary" onClick={this.handleClick}>
-            {this.props.label}
+            {label}
           </Button>
         </Item>
       </div>

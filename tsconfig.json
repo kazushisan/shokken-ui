@@ -1,15 +1,18 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"sourceMap": true,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+		"strictNullChecks": true,
+		"noUnusedParameters": true, 
 		"noImplicitReturns": true,
-		"noUnusedLocals": true,
-		"target": "es5",
-		"module": "es2015",
-		"jsx": "react",
-		"moduleResolution": "node",
-		"experimentalDecorators": true,
-		"lib": ["dom", "es6"],
-		"allowSyntheticDefaultImports": true
-	}
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "target": "es5",
+    "module": "es2015",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "lib": ["dom", "es6"],
+    "allowSyntheticDefaultImports": true
+  }
 }

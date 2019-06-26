@@ -12,7 +12,8 @@
     "jsx": "react",
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "lib": ["dom", "es6"],
-    "allowSyntheticDefaultImports": true
+    "lib": ["dom", "es2018"],
+    "allowSyntheticDefaultImports": true,
+    "types": []
   }
 }

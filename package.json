@@ -44,9 +44,10 @@
     "storybook": "start-storybook -p 6006",
     "styled-components": "^4.3.1",
     "build-storybook": "build-storybook",
-    "lint": "yarn lint:ts && yarn lint:css",
+    "lint": "yarn check-ts && yarn lint:ts && yarn lint:css",
     "lint:ts": "eslint --ext .ts,tsx ./",
     "lint:css": "stylelint './**/*.tsx' './**/*.ts'",
-    "lint:fix": "yarn lint:ts --fix && yarn lint:css --fix"
+    "lint:fix": "yarn lint:ts --fix && yarn lint:css --fix",
+    "check-types": "yarn tsc --noEmit"
   }
 }

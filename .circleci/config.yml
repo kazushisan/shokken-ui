@@ -1,0 +1,31 @@
+version: 2.1
+executors:
+  nodejs:
+    docker:
+      - image: circleci/node:10.15.3
+    working_directory: ~/project
+jobs:
+  lint:
+    executor: nodejs
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Yarn Packges
+          command: yarn install
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Test files using eslint and stylelint
+          command: yarn lint
+workflows:
+  version: 2.1
+  main_workflow:
+    jobs:
+      - lint

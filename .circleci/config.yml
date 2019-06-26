@@ -22,7 +22,10 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Test files using eslint and stylelint
+          name: check Types for Typescript
+          command: yarn check-types
+      - run:
+          name: run linter using eslint and stylelint
           command: yarn lint
 workflows:
   version: 2.1

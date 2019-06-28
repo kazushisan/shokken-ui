@@ -11,58 +11,88 @@ interface Props {
   inputName: string
   inputPass: string
   label: string
+  // name: string
+  // pass: string
   onClick: (name: string, pass: string) => void
 }
 
-class LoginForm extends React.Component<Props, {}> {
-  constructor(props:any) {
+interface State {
+  name: string
+  pass: string
+}
+
+class LoginForm extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props)
     this.state = { name: '', pass: '' }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleChange(event:any) {
-    const { target } = event
-    const { value } = target
-    const { id } = target
+  // handleChange(event: any) {
+  //   const { target } = event
+  //   const { value } = target
+  //   const { id } = target
+  //
+  //   this.setState({
+  //     [id as "name" | "pass"]: value as string
+  //   })
+  // }
 
+  // handleChange(key: keyof State) {
+  //   return (event: React.FormEvent<HTMLInputElement>) { => {
+  //     const { value } = event.target
+  //     this.setState({
+  //       key: value as string
+  //     })
+  //   }
+  // }
+
+  handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
-      [id]: value
+      name: event.target.value
     })
   }
 
-  handleClick(){
-    const { name, pass} = this.state
+  handlePass = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({
+      pass: event.target.value
+    })
+  }
+
+  handleClick = () => {
+    const { name, pass } = this.state
     const { onClick } = this.props
     onClick(name, pass)
-    document.forms.reset()
+    this.setState({
+      name: '',
+      pass: ''
+    })
   }
 
   render() {
     const { inputName, inputPass, label } = this.props
+    const { name, pass } = this.state
+
     return (
       <div style={{ textAlign: 'center' }}>
         <Item>
           <p>Log in</p>
         </Item>
-        <form name="form">
+        <form name="forms">
           <Item style={{ marginTop: 40 }}>
             <Input
               id="name"
-              name="name"
               placeholder={inputName}
-              onChange={this.handleChange}
+              value={name}
+              onChange={this.handleName}
             />
           </Item>
           <Item>
             <Input
               id="pass"
-              name="pass"
               type="password"
               placeholder={inputPass}
-              onChange={this.handleChange}
+              value={pass}
+              onChange={this.handlePass}
             />
           </Item>
         </form>

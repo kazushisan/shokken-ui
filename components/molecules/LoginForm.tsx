@@ -14,8 +14,8 @@ interface Props {
   onClick: (name: string, pass: string) => void
 }
 
-class LoginForm extends React.Component<Props> {
-  constructor(props) {
+class LoginForm extends React.Component<Props, {}> {
+  constructor(props:any) {
     super(props)
     this.state = { name: '', pass: '' }
 
@@ -23,7 +23,7 @@ class LoginForm extends React.Component<Props> {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleChange(event) {
+  handleChange(event:any) {
     const { target } = event
     const { value } = target
     const { id } = target
@@ -33,11 +33,11 @@ class LoginForm extends React.Component<Props> {
     })
   }
 
-  handleClick() {
-    const { name, pass } = this.state
+  handleClick(){
+    const { name, pass} = this.state
     const { onClick } = this.props
     onClick(name, pass)
-    document.form.reset()
+    document.forms.reset()
   }
 
   render() {

@@ -21,7 +21,6 @@ stories.add('LoginForm', () => {
   return (
     <Wrap>
       <LoginForm
-        color="primary"
         inputName={inputName}
         inputPass={inputPass}
         label={label}

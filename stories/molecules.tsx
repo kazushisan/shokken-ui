@@ -15,14 +15,16 @@ stories.addDecorator(withKnobs)
 
 stories.add('LoginForm', () => {
   const label = text('Label', 'ログイン')
-  const inputName = text('inputName', 'ユーザー名を入力してください')
-  const inputPass = text('inputPass', 'パスワードを入力してください')
+
+  const placeholder = {
+    name: text('placeholder.name', 'ユーザー名を入力してください'),
+    pass: text('placeholder.pass', 'パスワードを入力してください')
+  }
 
   return (
     <Wrap>
       <LoginForm
-        inputName={inputName}
-        inputPass={inputPass}
+        placeholder={placeholder}
         label={label}
         onClick={action('send')}
       />

@@ -27,25 +27,6 @@ class LoginForm extends React.Component<Props, State> {
     this.state = { name: '', pass: '' }
   }
 
-  // handleChange(event: any) {
-  //   const { target } = event
-  //   const { value } = target
-  //   const { id } = target
-  //
-  //   this.setState({
-  //     [id as "name" | "pass"]: value as string
-  //   })
-  // }
-
-  // handleChange(key: keyof State) {
-  //   return (event: React.FormEvent<HTMLInputElement>) { => {
-  //     const { value } = event.target
-  //     this.setState({
-  //       key: value as string
-  //     })
-  //   }
-  // }
-
   handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       name: event.target.value

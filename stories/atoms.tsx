@@ -7,6 +7,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Button from '../components/atoms/Button'
 import Input from '../components/atoms/Input'
+import OrderInfo from '../components/atoms/OrderInfo'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -29,6 +30,16 @@ stories.add('Input', () => {
   return (
     <Wrap>
       <Input color="primary" placeholder="入力してください..." />
+    </Wrap>
+  )
+})
+
+stories.add('OrderInfo', () => {
+  const orderproduct = text('orderproduct', '注文商品名')
+  const orderid = text('orderid', '注文ID')
+  return (
+    <Wrap>
+      <OrderInfo orderproduct={orderproduct} orderid={orderid} />
     </Wrap>
   )
 })

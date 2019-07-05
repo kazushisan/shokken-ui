@@ -12,20 +12,14 @@ const Box = styled.div`
 interface Props {}
 
 class OrderConf extends React.Component<Props> {
-
   render() {
-    const { orderproduct, orderid } = this.props
+    const { orderProduct, orderId } = this.props
     return (
-      <div>
-        <Box>
-          <Item>
-            <OrderInfo
-              orderproduct={orderproduct}
-              orderid={orderid}
-            />
-          </Item>
-        </Box>
-      </div>
+      <Box>
+        <Item>
+          <OrderInfo orderProduct={orderProduct} orderId={orderId} />
+        </Item>
+      </Box>
     )
   }
 }

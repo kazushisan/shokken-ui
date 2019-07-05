@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import OrderInfo from '../atoms/OrderInfo.tsx'
+import OrderInfo from '../molecules/OrderInfo.tsx'
+import { action } from '@storybook/addon-actions'
 
 const Item = styled.div`
   margin: 8px;
@@ -13,11 +14,16 @@ interface Props {}
 
 class OrderConf extends React.Component<Props> {
   render() {
-    const { orderProduct, orderId } = this.props
+    const { orderProduct, orderId, label, handleClick } = this.props
     return (
       <Box>
         <Item>
-          <OrderInfo orderProduct={orderProduct} orderId={orderId} />
+          <OrderInfo
+            orderProduct={orderProduct}
+            orderId={orderId}
+            label={label}
+            onClick={action('send')}
+          />
         </Item>
       </Box>
     )

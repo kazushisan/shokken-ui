@@ -16,8 +16,6 @@ const Item = styled.div`
   font-size: inherit;
 `
 
-
-
 const SWIPED_DISTANCE = 150
 
 class OrderInfo extends React.Component<Props> {
@@ -93,19 +91,27 @@ class OrderInfo extends React.Component<Props> {
         onPan={this.onPan}
         onPanEnd={this.onPanEnd}
       >
-        <Item style={style}>
-        <Button
-          style={
-            { float: "left"},
-            { width: 104}
-
-          }
-          color="primary"
-          onClick={this.handleClick}>
-          {label}
-        </Button>
-          <p>{orderProduct}</p>
-          <p>{orderId}</p>
+        <Item style={style, {display:"flex"}}>
+          <div
+            style={{ flex: '1 0 0' }}
+          >
+            <p>{orderProduct}</p>
+            <p>{orderId}</p>
+          </div>
+          <Button
+            style={{ flex: '0 0 auto', width: 'auto' }}
+            color="primary"
+            onClick={this.handleClick}
+          >
+            {label}
+          </Button>
+          <Button　
+            style={{ flex: '0 0 auto', width: 'auto' }}
+            color="primary"
+            onClick={this.handleClick}
+          >
+            {label}
+          </Button>
         </Item>
       </Hammer>
     )

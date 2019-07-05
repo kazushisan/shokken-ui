@@ -6,7 +6,6 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 import OrderInfo from '../components/molecules/OrderInfo'
-import OrderConf from '../components/molecules/OrderConf'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -24,21 +23,7 @@ stories.add('OrderInfo', () => {
         orderProduct={orderProduct}
         orderId={orderId}
         label={label}
-        onClick={action('send')}/>
-    </Wrap>
-  )
-})
-
-stories.add('OrderConf', () => {
-  const orderProduct = text('orderProduct', '注文商品名')
-  const orderId = text('orderId', '注文ID')
-  const label = text('label', '商品完成')
-  return (
-    <Wrap>
-      <OrderConf
-        orderProduct={orderProduct}
-        orderId={orderId}
-        label={label}
+        onClick={action('send')}
       />
     </Wrap>
   )

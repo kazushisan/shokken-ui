@@ -8,11 +8,11 @@ const Item = styled.div`
 `
 
 interface Props {
-  inputName: string
-  inputPass: string
+  placeholder: {
+    name: string
+    pass: string
+  }
   label: string
-  // name: string
-  // pass: string
   onClick: (name: string, pass: string) => void
 }
 
@@ -26,25 +26,6 @@ class LoginForm extends React.Component<Props, State> {
     super(props)
     this.state = { name: '', pass: '' }
   }
-
-  // handleChange(event: any) {
-  //   const { target } = event
-  //   const { value } = target
-  //   const { id } = target
-  //
-  //   this.setState({
-  //     [id as "name" | "pass"]: value as string
-  //   })
-  // }
-
-  // handleChange(key: keyof State) {
-  //   return (event: React.FormEvent<HTMLInputElement>) { => {
-  //     const { value } = event.target
-  //     this.setState({
-  //       key: value as string
-  //     })
-  //   }
-  // }
 
   handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
@@ -69,33 +50,26 @@ class LoginForm extends React.Component<Props, State> {
   }
 
   render() {
-    const { inputName, inputPass, label } = this.props
+    const { placeholder, label } = this.props
     const { name, pass } = this.state
 
     return (
-      <div style={{ textAlign: 'center' }}>
+      <div>
         <Item>
-          <p>Log in</p>
+          <Input
+            placeholder={placeholder.name}
+            value={name}
+            onChange={this.handleName}
+          />
         </Item>
-        <form name="forms">
-          <Item style={{ marginTop: 40 }}>
-            <Input
-              id="name"
-              placeholder={inputName}
-              value={name}
-              onChange={this.handleName}
-            />
-          </Item>
-          <Item>
-            <Input
-              id="pass"
-              type="password"
-              placeholder={inputPass}
-              value={pass}
-              onChange={this.handlePass}
-            />
-          </Item>
-        </form>
+        <Item>
+          <Input
+            type="password"
+            placeholder={placeholder.pass}
+            value={pass}
+            onChange={this.handlePass}
+          />
+        </Item>
         <Item style={{ marginTop: 40 }}>
           <Button color="primary" onClick={this.handleClick}>
             {label}

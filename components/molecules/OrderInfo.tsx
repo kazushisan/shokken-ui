@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Hammer from 'react-hammerjs'
+import Button from '../atoms/Button'
 
 interface Props {
-  orderproduct: string
-  orderid: string
+  orderProduct: string
+  orderId: string
 }
 
 const Item = styled.div`
@@ -15,6 +16,8 @@ const Item = styled.div`
   font-size: inherit;
 `
 
+
+
 const SWIPED_DISTANCE = 150
 
 class OrderInfo extends React.Component<Props> {
@@ -22,7 +25,7 @@ class OrderInfo extends React.Component<Props> {
     super()
     this.state = {
       opened: false,
-      deltaX: 0
+      deltaX: 0,
     }
   }
 
@@ -68,8 +71,18 @@ class OrderInfo extends React.Component<Props> {
     return opened ? -1 * SWIPED_DISTANCE : 0
   }
 
-  render() {
+  handleClick = () => {
     const { orderProduct, orderId } = this.props
+    const { onClick } = this.props
+    onClick(orderProduct, orderId)
+    this.setState({
+      orderProduct: {orderProduct},
+      orderId: {orderId}
+    })
+  }
+
+  render() {
+    const { orderProduct, orderId, label } = this.props
     const { deltaX } = this.state
     const style = {
       transform: `translate(${deltaX}px, 0)`
@@ -81,6 +94,16 @@ class OrderInfo extends React.Component<Props> {
         onPanEnd={this.onPanEnd}
       >
         <Item style={style}>
+        <Button
+          style={
+            { float: "left"},
+            { width: 104}
+
+          }
+          color="primary"
+          onClick={this.handleClick}>
+          {label}
+        </Button>
           <p>{orderProduct}</p>
           <p>{orderId}</p>
         </Item>

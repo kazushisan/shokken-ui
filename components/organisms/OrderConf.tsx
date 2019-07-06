@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { action } from '@storybook/addon-actions'
-import OrderInfo from '../molecules/OrderInfo.tsx'
+import OrderInfo from '../molecules/OrderInfo'
 
 const Item = styled.div`
   margin: 8px;
@@ -15,11 +14,14 @@ interface Product {
 }
 interface Props {
   products: Product[]
+  compLabel: string
+  delLabel: string
+  onClick: (orderProdut: string, orderId: number) => void
 }
 
-class OrderConf extends React.Component<Props> {
+class OrderConf extends React.PureComponent<Props> {
   render() {
-    const { label, products } = this.props
+    const { compLabel, delLabel, products, onClick } = this.props
     return (
       <Box>
         {products.map(x => {
@@ -28,8 +30,9 @@ class OrderConf extends React.Component<Props> {
               <OrderInfo
                 orderProduct={x.name}
                 orderId={x.id}
-                label={label}
-                onClick={action('send')}
+                compLabel={compLabel}
+                delLabel={delLabel}
+                onClick={onClick}
               />
             </Item>
           )

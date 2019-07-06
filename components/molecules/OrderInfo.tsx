@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import Hammer from 'react-hammerjs'
 import Button from '../atoms/Button'
 
 interface Props {
   orderProduct: string
-  orderId: string
+  orderId: number
+  onClick: (orderProdut: string, orderId: number) => void
+  compLabel: string
+  delLabel: string
 }
 
 const Item = styled.div`
@@ -16,104 +18,36 @@ const Item = styled.div`
   font-size: inherit;
 `
 
-const SWIPED_DISTANCE = 150
-
 class OrderInfo extends React.Component<Props> {
-  constructor() {
-    super()
-    this.state = {
-      opened: false,
-      deltaX: 0,
-    }
-  }
-
-  onPanStart = () => {
-    this.setState({
-      deltaX: this.getFirstPosition()
-    })
-  }
-
-  onPan = e => {
-    this.setState({
-      deltaX: this.getFirstPosition() + e.deltaX
-    })
-  }
-
-  onPanEnd = e => {
-    const { opened } = this.state
-    if (opened) {
-      if (e.deltaX >= SWIPED_DISTANCE / 2) {
-        this.setState({
-          opened: false,
-          deltaX: 0
-        })
-      } else {
-        this.setState({
-          deltaX: this.getFirstPosition()
-        })
-      }
-    } else if (e.deltaX <= -1 * SWIPED_DISTANCE) {
-      this.setState({
-        opened: true,
-        deltaX: -1 * SWIPED_DISTANCE
-      })
-    } else {
-      this.setState({
-        deltaX: 0
-      })
-    }
-  }
-
-  getFirstPosition = () => {
-    const { opened } = this.state
-    return opened ? -1 * SWIPED_DISTANCE : 0
-  }
-
   handleClick = () => {
-    const { orderProduct, orderId } = this.props
-    const { onClick } = this.props
+    const { orderProduct, orderId, onClick } = this.props
     onClick(orderProduct, orderId)
-    this.setState({
-      orderProduct: {orderProduct},
-      orderId: {orderId}
-    })
   }
 
   render() {
-    const { orderProduct, orderId, label } = this.props
-    const { deltaX } = this.state
-    const style = {
-      transform: `translate(${deltaX}px, 0)`
-    }
+    const { orderProduct, orderId, compLabel, delLabel } = this.props
+
     return (
-      <Hammer
-        onPanStart={this.onPanStart}
-        onPan={this.onPan}
-        onPanEnd={this.onPanEnd}
-      >
-        <Item style={style, {display:"flex"}}>
-          <div
-            style={{ flex: '1 0 0' }}
-          >
-            <p>{orderProduct}</p>
-            <p>{orderId}</p>
-          </div>
-          <Button
-            style={{ flex: '0 0 auto', width: 'auto' }}
-            color="primary"
-            onClick={this.handleClick}
-          >
-            {label}
-          </Button>
-          <Button　
-            style={{ flex: '0 0 auto', width: 'auto' }}
-            color="primary"
-            onClick={this.handleClick}
-          >
-            {label}
-          </Button>
-        </Item>
-      </Hammer>
+      <Item style={{ display: 'flex' }}>
+        <div style={{ flex: '1 0 0' }}>
+          <p>{orderProduct}</p>
+          <p>{orderId}</p>
+        </div>
+        <Button
+          style={{ flex: '0 0 auto', width: 'auto' }}
+          color="primary"
+          onClick={this.handleClick}
+        >
+          {compLabel}
+        </Button>
+        <Button
+          style={{ flex: '0 0 auto', width: 'auto' }}
+          color="primary"
+          onClick={this.handleClick}
+        >
+          {delLabel}
+        </Button>
+      </Item>
     )
   }
 }

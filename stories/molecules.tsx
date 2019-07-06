@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import OrderInfo from '../components/molecules/OrderInfo'
 
@@ -15,14 +15,17 @@ stories.addDecorator(withKnobs)
 
 stories.add('OrderInfo', () => {
   const orderProduct = text('orderIroduct', '注文商品名')
-  const orderId = text('orderid', '注文ID')
-  const label = text('label', '商品完成')
+  const orderId = number('orderId', 0)
+  const compLabel = text('compLabel', '商品完成')
+  const delLabel = text('delLabel', '削除')
+
   return (
     <Wrap>
       <OrderInfo
         orderProduct={orderProduct}
         orderId={orderId}
-        label={label}
+        compLabel={compLabel}
+        delLabel={delLabel}
         onClick={action('send')}
       />
     </Wrap>

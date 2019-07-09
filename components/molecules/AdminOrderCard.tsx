@@ -11,7 +11,7 @@ interface Props {
     complete: string
     delete: string
   }
-  onClick: (product: string, id: number) => void
+  onClick: (product: string, id: number, label: string) => void
 }
 
 const Item = styled.div`
@@ -23,9 +23,14 @@ const Item = styled.div`
 `
 
 class AdminOrderCard extends React.Component<Props> {
-  handleClick = () => {
+  completeClick = () => {
     const { order, onClick } = this.props
-    onClick(order.product, order.id)
+    onClick(order.product, order.id, 'complete')
+  }
+
+  deleteClick = () => {
+    const { order, onClick } = this.props
+    onClick(order.product, order.id, 'delete')
   }
 
   render() {
@@ -40,14 +45,18 @@ class AdminOrderCard extends React.Component<Props> {
         <Button
           style={{ flex: '0 0 auto', width: 'auto' }}
           color="primary"
-          onClick={this.handleClick}
+          onClick={this.completeClick}
         >
           {label.complete}
         </Button>
         <Button
-          style={{ flex: '0 0 auto', width: 'auto', marginLeft: 8,width: 'auto'}}
+          style={{
+            flex: '0 0 auto',
+            width: 'auto',
+            marginLeft: 8
+          }}
           color="primary"
-          onClick={this.handleClick}
+          onClick={this.deleteClick}
         >
           {label.delete}
         </Button>

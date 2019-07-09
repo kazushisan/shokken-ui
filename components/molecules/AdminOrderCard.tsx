@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import Button from '../atoms/Button'
 
 interface Props {
-  orderProduct: string
-  orderId: number
-  onClick: (orderProdut: string, orderId: number) => void
-  compLabel: string
-  delLabel: string
+  order: {
+    product: string
+    id: number
+  }
+  label: {
+    complete: string
+    delete: string
+  }
+  onClick: (product: string, id: number) => void
 }
 
 const Item = styled.div`
@@ -18,38 +22,38 @@ const Item = styled.div`
   font-size: inherit;
 `
 
-class OrderInfo extends React.Component<Props> {
+class AdminOrderCard extends React.Component<Props> {
   handleClick = () => {
-    const { orderProduct, orderId, onClick } = this.props
-    onClick(orderProduct, orderId)
+    const { order, onClick } = this.props
+    onClick(order.product, order.id)
   }
 
   render() {
-    const { orderProduct, orderId, compLabel, delLabel } = this.props
+    const { order, label } = this.props
 
     return (
       <Item style={{ display: 'flex' }}>
         <div style={{ flex: '1 0 0' }}>
-          <p>{orderProduct}</p>
-          <p>{orderId}</p>
+          <p>{order.product}</p>
+          <p>{order.id}</p>
         </div>
         <Button
           style={{ flex: '0 0 auto', width: 'auto' }}
           color="primary"
           onClick={this.handleClick}
         >
-          {compLabel}
+          {label.complete}
         </Button>
         <Button
-          style={{ flex: '0 0 auto', width: 'auto' }}
+          style={{ flex: '0 0 auto', width: 'auto', marginLeft: 8,width: 'auto'}}
           color="primary"
           onClick={this.handleClick}
         >
-          {delLabel}
+          {label.delete}
         </Button>
       </Item>
     )
   }
 }
 
-export default OrderInfo
+export default AdminOrderCard

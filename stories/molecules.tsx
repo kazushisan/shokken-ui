@@ -5,6 +5,7 @@ import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
 import { withKnobs, text, number } from '@storybook/addon-knobs'
 
+import LoginForm from '../components/molecules/LoginForm'
 import AdminOrderCard from '../components/molecules/AdminOrderCard'
 
 const Wrap = styled.div`
@@ -12,6 +13,25 @@ const Wrap = styled.div`
 `
 const stories = storiesOf('molecules', module)
 stories.addDecorator(withKnobs)
+
+stories.add('LoginForm', () => {
+  const label = text('Label', 'ログイン')
+
+  const placeholder = {
+    name: text('placeholder.name', 'ユーザー名を入力してください'),
+    pass: text('placeholder.pass', 'パスワードを入力してください')
+  }
+
+  return (
+    <Wrap>
+      <LoginForm
+        placeholder={placeholder}
+        label={label}
+        onClick={action('send')}
+      />
+    </Wrap>
+  )
+})
 
 stories.add('AdminOrderCard', () => {
   const orderProduct = text('orderProduct', '注文商品名')

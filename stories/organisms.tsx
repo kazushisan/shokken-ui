@@ -26,7 +26,7 @@ stories.add('AdminOrderList', () => {
       id: ids[i]
     })
   }
-  const label ={
+  const label = {
     complete: compLabel,
     delete: delLabel
   }

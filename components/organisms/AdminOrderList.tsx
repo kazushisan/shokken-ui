@@ -18,7 +18,7 @@ interface Props {
     complete: string
     delete: string
   }
-  onClick: (product: string, id: number) => void
+  onClick: (product: string, id: number, label: string) => void
 }
 
 class AdminOrderList extends React.PureComponent<Props> {

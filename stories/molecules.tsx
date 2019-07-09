@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
+import UserOrderCard from '../components/molecules/UserOrderCard'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -26,6 +27,29 @@ stories.add('LoginForm', () => {
       <LoginForm
         placeholder={placeholder}
         label={label}
+        onClick={action('send')}
+      />
+    </Wrap>
+  )
+})
+
+stories.add('UserOrderCard', () => {
+  const label = {
+    plus: text('plus', '+'),
+    minus: text('minus', '-')
+  }
+  const order = {
+    product: text('orderProduct', '商品名'),
+    price: number('orderPrice', 0)
+  }
+  const priceUnit = text('priceUnit', '円')
+
+  return (
+    <Wrap>
+      <UserOrderCard
+        order={order}
+        label={label}
+        priceUnit={priceUnit}
         onClick={action('send')}
       />
     </Wrap>

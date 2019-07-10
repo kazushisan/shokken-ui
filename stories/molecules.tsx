@@ -34,13 +34,13 @@ stories.add('LoginForm', () => {
 })
 
 stories.add('AdminOrderCard', () => {
-  const orderProduct = text('orderProduct', '注文商品名')
+  const orderProduct = text('orderName', '注文商品名')
   const orderId = number('orderId', 0)
   const compLabel = text('compLabel', '商品完成')
   const delLabel = text('delLabel', '削除')
 
   const order = {
-    product: orderProduct,
+    name: orderProduct,
     id: orderId
   }
 

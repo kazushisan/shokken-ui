@@ -4,7 +4,7 @@ import Button from '../atoms/Button'
 
 interface Props {
   order: {
-    product: string
+    name: string
     id: number
   }
   label: {
@@ -25,12 +25,12 @@ const Item = styled.div`
 class AdminOrderCard extends React.Component<Props> {
   completeClick = () => {
     const { order, onClick } = this.props
-    onClick(order.product, order.id, 'complete')
+    onClick(order.name, order.id, 'complete')
   }
 
   deleteClick = () => {
     const { order, onClick } = this.props
-    onClick(order.product, order.id, 'delete')
+    onClick(order.name, order.id, 'delete')
   }
 
   render() {
@@ -39,7 +39,7 @@ class AdminOrderCard extends React.Component<Props> {
     return (
       <Item style={{ display: 'flex' }}>
         <div style={{ flex: '1 0 0' }}>
-          <p>{order.product}</p>
+          <p>{order.name}</p>
           <p>{order.id}</p>
         </div>
         <Button

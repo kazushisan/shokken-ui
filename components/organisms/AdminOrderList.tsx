@@ -18,7 +18,7 @@ interface Props {
     complete: string
     delete: string
   }
-  onClick: (product: string, id: number, label: string) => void
+  onClick: (name: string, id: number, label: string) => void
 }
 
 class AdminOrderList extends React.PureComponent<Props> {
@@ -27,13 +27,9 @@ class AdminOrderList extends React.PureComponent<Props> {
     return (
       <Box>
         {products.map(x => {
-          const order = {
-            product: x.name,
-            id: x.id
-          }
           return (
             <Item>
-              <AdminOrderCard order={order} label={label} onClick={onClick} />
+              <AdminOrderCard order={x} label={label} onClick={onClick} />
             </Item>
           )
         })}

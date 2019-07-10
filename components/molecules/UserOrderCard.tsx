@@ -82,7 +82,7 @@ class UserOrderCard extends React.Component<Props, State> {
         >
           {label.plus}
         </Button>
-        <p style={{ padding: 16 }}>{count}</p>
+        <p style={{ padding: 12 }}>{count}</p>
         <Button
           style={{
             flex: '0 0 auto',

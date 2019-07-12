@@ -51,7 +51,12 @@ stories.add('AdminOrderCard', () => {
 
   return (
     <Wrap>
-      <AdminOrderCard order={order} label={label} onClick={action('send')} />
+      <AdminOrderCard
+        order={order}
+        label={label}
+        onComplete={action('complete')}
+        onDelete={action('delete')}
+      />
     </Wrap>
   )
 })

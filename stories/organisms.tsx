@@ -36,7 +36,8 @@ stories.add('AdminOrderList', () => {
       <AdminOrderList
         products={products}
         label={label}
-        onClick={action('send')}
+        onComplete={action('complete')}
+        onDelete={action('delete')}
       />
     </Wrap>
   )

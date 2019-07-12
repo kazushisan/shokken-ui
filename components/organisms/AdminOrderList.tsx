@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AdminOrderCard from '../molecules/AdminOrderCard'
+import AdminOrderCard, { Order, OrderAction } from '../molecules/AdminOrderCard'
 
 const Item = styled.div`
   margin: 8px;
@@ -8,34 +8,35 @@ const Item = styled.div`
 const Box = styled.div`
   overflow: scroll;
 `
-interface Product {
-  name: string
-  id: number
-}
+
 interface Props {
-  products: Product[]
+  products: Order[]
   label: {
     complete: string
     delete: string
   }
-  onClick: (name: string, id: number, label: string) => void
+  onComplete: OrderAction
+  onDelete: OrderAction
 }
 
-class AdminOrderList extends React.PureComponent<Props> {
-  render() {
-    const { label, products, onClick } = this.props
-    return (
-      <Box>
-        {products.map(x => {
-          return (
-            <Item>
-              <AdminOrderCard order={x} label={label} onClick={onClick} />
-            </Item>
-          )
-        })}
-      </Box>
-    )
-  }
+const AdminOrderList = (props: Props) => {
+  const { label, products, onComplete, onDelete } = props
+  return (
+    <Box>
+      {products.map(x => {
+        return (
+          <Item>
+            <AdminOrderCard
+              order={x}
+              label={label}
+              onComplete={onComplete}
+              onDelete={onDelete}
+            />
+          </Item>
+        )
+      })}
+    </Box>
+  )
 }
 
 export default AdminOrderList

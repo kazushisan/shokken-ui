@@ -17,9 +17,20 @@ const Item = styled.div`
   border-radius: 8px;
   border: 1px #eee solid;
   font-size: inherit;
-  width: auto;
-  display: inline;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 `
+
+const Img = styled.div`
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+width: 100%;
+padding-top: 75%
+`
+
+
 
 class MenuProductCard extends React.Component<Props> {
   handleClick = () => {
@@ -28,15 +39,17 @@ class MenuProductCard extends React.Component<Props> {
   }
 
   render() {
-    const { src, order, priceUnit } = this.props
+    const { src, order, priceUnit, width, height } = this.props
 
     return (
       <Item
-        style={{ display: 'flex'}}
+        style={{ display: 'flex', flexDirection: 'column'}}
         onClick={this.handleClick}
       >
-        <div style={{ flex: '1 0 0' ,textAlign: 'center'}}>
-         <img src={src} alt={order.name} title={order.name}/>
+        <Img style={{backgroundImage: `url('${src}')`,textAlign: 'center'}}>
+        </Img>
+        <div style={{ flex: '1 0 0' ,textAlign: 'center', marginTop: 8}}>
+
           <p>{order.name}</p>
           <p>
             {order.price}

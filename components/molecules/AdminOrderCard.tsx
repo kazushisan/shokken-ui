@@ -2,6 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from '../atoms/Button'
 
+export interface Order {
+  name: string,
+  id:  number
+}
+
+export type OrderAction = (order: Order) => void
+
 interface Props {
   order: {
     name: string
@@ -11,7 +18,8 @@ interface Props {
     complete: string
     delete: string
   }
-  onClick: (product: string, id: number, label: string) => void
+  onComplete: OrderAction
+  onDelete: OrderAction
 }
 
 const Item = styled.div`
@@ -21,47 +29,49 @@ const Item = styled.div`
   font-size: inherit;
 `
 
-class AdminOrderCard extends React.Component<Props> {
-  completeClick = () => {
-    const { order, onClick } = this.props
-    onClick(order.name, order.id, 'complete')
+const AdminOrderCard = (props: Props) => {
+  const completeClick = () => {
+    const { order, onComplete } = props
+    onComplete(order)
+  }
+  
+  const deleteClick = () => {
+    const { order, onDelete } = props
+    onDelete(order)
   }
 
-  deleteClick = () => {
-    const { order, onClick } = this.props
-    onClick(order.name, order.id, 'delete')
-  }
+  const { order, label } = props
 
-  render() {
-    const { order, label } = this.props
+  return (
+    <Item style={{ display: 'flex' }}>
+      <div style={{ flex: '1 0 0' }}>
+        <p>{order.name}</p>
+        <p>{order.id}</p>
+      </div>
+      <Button
+        style={{ flex: '0 0 auto', width: 'auto' }}
+        color="primary"
+        onClick={completeClick}
+      >
+        {label.complete}
+      </Button>
+      <Button
+        style={{
+          flex: '0 0 auto',
+          width: 'auto',
+          marginLeft: 8
+        }}
+        color="primary"
+        onClick={deleteClick}
+      >
+        {label.delete}
+      </Button>
+    </Item>
+  )
 
-    return (
-      <Item style={{ display: 'flex' }}>
-        <div style={{ flex: '1 0 0' }}>
-          <p>{order.name}</p>
-          <p>{order.id}</p>
-        </div>
-        <Button
-          style={{ flex: '0 0 auto', width: 'auto' }}
-          color="primary"
-          onClick={this.completeClick}
-        >
-          {label.complete}
-        </Button>
-        <Button
-          style={{
-            flex: '0 0 auto',
-            width: 'auto',
-            marginLeft: 8
-          }}
-          color="primary"
-          onClick={this.deleteClick}
-        >
-          {label.delete}
-        </Button>
-      </Item>
-    )
-  }
+  
+
+
 }
 
 export default AdminOrderCard

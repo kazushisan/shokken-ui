@@ -52,10 +52,10 @@ stories.add('MenuProductCard', () => {
         priceUnit={priceUnit}
         src={src}
         onClick={action('send')}
-        />
-      </Wrap>
-    )
-  })
+      />
+    </Wrap>
+  )
+})
 
 stories.add('AdminOrderCard', () => {
   const orderProduct = text('orderName', '注文商品名')

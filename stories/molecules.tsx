@@ -39,8 +39,11 @@ stories.add('MenuProductCard', () => {
     price: number('Price', 0)
   }
   const priceUnit = text('priceUnit', '円')
-  const src = text('src', 'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg')
-
+  const src = text(
+    'src',
+    'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
+  )
+  
   return (
     <Wrap>
       <MenuProductCard

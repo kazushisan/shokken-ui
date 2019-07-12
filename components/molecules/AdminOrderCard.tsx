@@ -10,10 +10,7 @@ export interface Order {
 export type OrderAction = (order: Order) => void
 
 interface Props {
-  order: {
-    name: string
-    id: number
-  }
+  order: Order
   label: {
     complete: string
     delete: string

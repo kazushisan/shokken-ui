@@ -13,7 +13,7 @@ interface Props {
 
 const Item = styled.div`
   /* background-color: #cff; */
-  padding: 12px 16px;
+  padding-bottom: 16px;
   border-radius: 8px;
   border: 1px #eee solid;
   font-size: inherit;
@@ -27,7 +27,8 @@ background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
 width: 100%;
-padding-top: 75%
+padding-top: 75%;
+border-radius: 8px 8px 0 0;
 `
 
 
@@ -39,7 +40,7 @@ class MenuProductCard extends React.Component<Props> {
   }
 
   render() {
-    const { src, order, priceUnit, width, height } = this.props
+    const { src, order, priceUnit} = this.props
 
     return (
       <Item
@@ -48,7 +49,7 @@ class MenuProductCard extends React.Component<Props> {
       >
         <Img style={{backgroundImage: `url('${src}')`,textAlign: 'center'}}>
         </Img>
-        <div style={{ flex: '1 0 0' ,textAlign: 'center', marginTop: 8}}>
+        <div style={{ flex: '1 0 0' ,textAlign: 'center', marginTop: 16}}>
 
           <p>{order.name}</p>
           <p>

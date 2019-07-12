@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Button from '../atoms/Button'
 
 export interface Order {
-  name: string,
-  id:  number
+  name: string
+  id: number
 }
 
 export type OrderAction = (order: Order) => void
@@ -34,7 +34,7 @@ const AdminOrderCard = (props: Props) => {
     const { order, onComplete } = props
     onComplete(order)
   }
-  
+
   const deleteClick = () => {
     const { order, onDelete } = props
     onDelete(order)
@@ -68,10 +68,6 @@ const AdminOrderCard = (props: Props) => {
       </Button>
     </Item>
   )
-
-  
-
-
 }
 
 export default AdminOrderCard

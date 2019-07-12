@@ -17,6 +17,8 @@ const Item = styled.div`
   border-radius: 8px;
   border: 1px #eee solid;
   font-size: inherit;
+  width: auto;
+  display: inline;
 `
 
 class MenuProductCard extends React.Component<Props> {

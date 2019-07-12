@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
+import AdminOrderCard from '../components/molecules/AdminOrderCard'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -27,6 +28,34 @@ stories.add('LoginForm', () => {
         placeholder={placeholder}
         label={label}
         onClick={action('send')}
+      />
+    </Wrap>
+  )
+})
+
+stories.add('AdminOrderCard', () => {
+  const orderProduct = text('orderName', '注文商品名')
+  const orderId = number('orderId', 0)
+  const compLabel = text('compLabel', '商品完成')
+  const delLabel = text('delLabel', '削除')
+
+  const order = {
+    name: orderProduct,
+    id: orderId
+  }
+
+  const label = {
+    complete: compLabel,
+    delete: delLabel
+  }
+
+  return (
+    <Wrap>
+      <AdminOrderCard
+        order={order}
+        label={label}
+        onComplete={action('complete')}
+        onDelete={action('delete')}
       />
     </Wrap>
   )

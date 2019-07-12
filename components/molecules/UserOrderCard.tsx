@@ -24,7 +24,6 @@ interface State {
 }
 
 const Item = styled.div`
-  /* background-color: #cff; */
   padding: 12px 16px;
   border-radius: 8px;
   border: 1px #eee solid;

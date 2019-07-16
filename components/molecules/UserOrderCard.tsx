@@ -13,10 +13,7 @@ interface Props {
     minus: string
   }
   onClick: (
-    product: string,
-    price: number,
-    count: number,
-    label: string
+    count: number
   ) => void
 }
 interface State {
@@ -37,29 +34,39 @@ class UserOrderCard extends React.Component<Props, State> {
   }
 
   plusClick = () => {
-    const { order, onClick } = this.props
+    const { onClick } = this.props
     const { count } = this.state
     this.setState({
       count: count + 1
     })
-    onClick(order.product, order.price, count + 1, 'plus')
+    onClick(count + 1)
   }
 
   minusClick = () => {
-    const { order, onClick } = this.props
+    const { onClick } = this.props
     const { count } = this.state
     if (count > 0) {
       this.setState({
         count: count - 1
       })
-      onClick(order.product, order.price, count - 1, 'minus')
+      onClick(count - 1)
     } else {
-      onClick(order.product, order.price, count, 'minus')
+      onClick(count)
     }
   }
 
   render() {
-    const { order, label, priceUnit } = this.props
+    const order = {
+      product: '商品名',
+      price: '0'
+    }
+    const priceUnit = '円'
+
+    const label = {
+      plus: '+',
+      minus: '-'
+    }
+
     const { count } = this.state
 
     return (

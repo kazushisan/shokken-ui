@@ -38,18 +38,11 @@ stories.add('UserOrderCard', () => {
     plus: text('plus', '+'),
     minus: text('minus', '-')
   }
-  const order = {
-    product: text('orderProduct', '商品名'),
-    price: number('orderPrice', 0)
-  }
-  const priceUnit = text('priceUnit', '円')
 
   return (
     <Wrap>
       <UserOrderCard
-        order={order}
         label={label}
-        priceUnit={priceUnit}
         onClick={action('send')}
       />
     </Wrap>

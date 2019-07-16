@@ -13,10 +13,17 @@ interface Props {
 
 const Item = styled.div`
   /* background-color: #cff; */
-  padding: 12px 16px;
+  padding-left: 16px;
   border-radius: 8px;
   border: 1px #eee solid;
   font-size: inherit;
+`
+
+const Img = styled.div`
+  background-size: cover;
+  width: 20%;
+  padding-top: 15%;
+  border-radius: 0 8px 8px 0;
 `
 
 class AdminProductCard extends React.Component<Props> {
@@ -25,12 +32,12 @@ class AdminProductCard extends React.Component<Props> {
     const { order, src, priceUnit } = this.props
 
     return (
-      <Item style={{ display: 'flex' }}>
-        <div style={{ flex: '1 0 0' }}>
+      <Item style={{ display: 'flex', alignItems:'center'}}>
+        <div style={{ flex: '1 0 0'}}>
           <p>{order.product}</p>
           <p>{order.price}{priceUnit}</p>
         </div>
-        <img src={src} title={order.product}></img>
+        <Img style={{backgroundImage: `url('${src}')`}}></Img>
       </Item>
     )
   }

@@ -20,7 +20,7 @@ const Item = styled.div`
 `
 
 const Img = styled.img`
-  width: 30%;
+  width: 15%;
   border-radius: 0 8px 8px 0;
 `
 

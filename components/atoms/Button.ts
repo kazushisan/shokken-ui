@@ -4,16 +4,6 @@ interface Props {
   color?: 'primary' | 'default'
 }
 
-// class Button extends React.Component<Props> {
-//   render() {
-//     const { children, onClick } = this.props
-//     return <button
-//       type="button"
-//       onClick={onClick}
-//     >{children}</button>
-//   }
-// }
-
 const Button = styled.button`
   background-color: ${(props: Props) =>
     props.color === 'primary' ? '#5DB7DE' : '#eee'};

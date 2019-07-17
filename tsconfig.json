@@ -9,6 +9,8 @@
     "noUnusedLocals": true,
     "target": "es5",
     "module": "es2015",
+    "declaration": true,
+    "outDir": "./dist",
     "jsx": "react",
     "moduleResolution": "node",
     "experimentalDecorators": true,

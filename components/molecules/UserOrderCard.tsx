@@ -3,18 +3,8 @@ import styled from 'styled-components'
 import Button from '../atoms/Button'
 
 interface Props {
-  order: {
-    product: string
-    price: number
-  }
-  priceUnit: string
-  label: {
-    plus: string
-    minus: string
-  }
-  onClick: (
-    count: number
-  ) => void
+  onClick: (count: number, id: number) => void
+  id: number
 }
 interface State {
   count: number
@@ -27,6 +17,11 @@ const Item = styled.div`
   font-size: inherit;
 `
 
+const FlexButton = styled(Button)`
+  flex: 0 0 auto;
+  width: auto;
+`
+
 class UserOrderCard extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
@@ -34,24 +29,24 @@ class UserOrderCard extends React.Component<Props, State> {
   }
 
   plusClick = () => {
-    const { onClick } = this.props
+    const { onClick, id } = this.props
     const { count } = this.state
     this.setState({
       count: count + 1
     })
-    onClick(count + 1)
+    onClick(count + 1, id)
   }
 
   minusClick = () => {
-    const { onClick } = this.props
+    const { onClick, id } = this.props
     const { count } = this.state
     if (count > 0) {
       this.setState({
         count: count - 1
       })
-      onClick(count - 1)
+      onClick(count - 1, id)
     } else {
-      onClick(count)
+      onClick(count, id)
     }
   }
 
@@ -78,27 +73,13 @@ class UserOrderCard extends React.Component<Props, State> {
             {priceUnit}
           </p>
         </div>
-        <Button
-          style={{
-            flex: '0 0 auto',
-            width: 'auto'
-          }}
-          color="primary"
-          onClick={this.plusClick}
-        >
+        <FlexButton color="primary" onClick={this.plusClick}>
           {label.plus}
-        </Button>
+        </FlexButton>
         <p style={{ padding: 12 }}>{count}</p>
-        <Button
-          style={{
-            flex: '0 0 auto',
-            width: 'auto'
-          }}
-          color="primary"
-          onClick={this.minusClick}
-        >
+        <FlexButton color="primary" onClick={this.minusClick}>
           {label.minus}
-        </Button>
+        </FlexButton>
       </Item>
     )
   }

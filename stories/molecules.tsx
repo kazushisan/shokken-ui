@@ -34,17 +34,10 @@ stories.add('LoginForm', () => {
 })
 
 stories.add('UserOrderCard', () => {
-  const label = {
-    plus: text('plus', '+'),
-    minus: text('minus', '-')
-  }
-
+  const id = number('Id', 0)
   return (
     <Wrap>
-      <UserOrderCard
-        label={label}
-        onClick={action('send')}
-      />
+      <UserOrderCard id={id} onClick={action('send')} />
     </Wrap>
   )
 })

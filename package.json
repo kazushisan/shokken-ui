@@ -2,7 +2,8 @@
   "name": "shokken-ui",
   "version": "1.0.0",
   "description": "UI Components for Shokken",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": "https://github.com/kazushisan/shokken-ui.git",
   "author": "Kazushi Konosu <kazushi@konosu.me>",
   "license": "MIT",
@@ -41,6 +42,8 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
+    "prepublish": "yarn build",
+    "build": "tsc",
     "storybook": "start-storybook -p 6006",
     "styled-components": "^4.3.1",
     "build-storybook": "build-storybook",

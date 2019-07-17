@@ -34,25 +34,23 @@ stories.add('LoginForm', () => {
   )
 })
 
-
 stories.add('AdminProductCard', () => {
   const order = {
     product: text('product', '商品名'),
     price: text('price', '0')
   }
-  const src = text('src', 'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg')
+  const src = text(
+    'src',
+    'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
+  )
   const priceUnit = text('priceUnit', '円')
 
   return (
     <Wrap>
-      <AdminProductCard
-        order={order}
-        src={src}
-        priceUnit={priceUnit}
-        />
-      </Wrap>
-    )
-  })
+      <AdminProductCard order={order} src={src} priceUnit={priceUnit} onClick={action('send')}/>
+    </Wrap>
+  )
+})
 
 stories.add('AdminOrderCard', () => {
   const orderProduct = text('orderName', '注文商品名')

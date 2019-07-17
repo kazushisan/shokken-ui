@@ -10,6 +10,17 @@ import UserOrderCard from './components/molecules/UserOrderCard'
 // organisms
 import AdminOrderList from './components/organisms/AdminOrderList'
 
-export const atoms = { Button, Input }
-export const molecules = { AdminOrderCard, LoginForm, UserOrderCard }
-export const organisms = { AdminOrderList }
+export const atoms: {
+  Button: typeof Button
+  Input: typeof Input
+} = { Button, Input }
+
+export const molecules: {
+  AdminOrderCard: typeof AdminOrderCard
+  LoginForm: typeof LoginForm
+  UserOrderCard: typeof UserOrderCard
+} = { AdminOrderCard, LoginForm, UserOrderCard }
+
+export const organisms: {
+  AdminOrderList: typeof AdminOrderList
+} = { AdminOrderList }

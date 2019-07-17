@@ -37,7 +37,7 @@ stories.add('LoginForm', () => {
 stories.add('AdminProductCard', () => {
   const order = {
     product: text('product', '商品名'),
-    price: text('price', '0')
+    price: number('price', 0)
   }
   const src = text(
     'src',
@@ -47,7 +47,12 @@ stories.add('AdminProductCard', () => {
 
   return (
     <Wrap>
-      <AdminProductCard order={order} src={src} priceUnit={priceUnit} onClick={action('send')}/>
+      <AdminProductCard
+        order={order}
+        src={src}
+        priceUnit={priceUnit}
+        onClick={action('send')}
+      />
     </Wrap>
   )
 })

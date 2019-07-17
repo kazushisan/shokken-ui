@@ -25,7 +25,6 @@ const Img = styled.img`
 `
 
 class AdminProductCard extends React.Component<Props> {
-
   handleClick = () => {
     const { onClick, order, src } = this.props
     onClick(order.product, order.price, src)

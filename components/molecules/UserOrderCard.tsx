@@ -23,10 +23,7 @@ const FlexButton = styled(Button)`
 `
 
 class UserOrderCard extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = { count: 0 }
-  }
+  state = { count: 0 }
 
   plusClick = () => {
     const { onClick, id } = this.props

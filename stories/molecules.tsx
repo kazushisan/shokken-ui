@@ -35,7 +35,6 @@ stories.add('LoginForm', () => {
   )
 })
 
-
 stories.add('UserOrderCard', () => {
   const id = number('Id', 0)
   return (

@@ -6,13 +6,13 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
-
 import UserOrderCard from '../components/molecules/UserOrderCard'
 import AdminOrderCard from '../components/molecules/AdminOrderCard'
 
 const Wrap = styled.div`
   margin: 20px;
 `
+
 const stories = storiesOf('molecules', module)
 stories.addDecorator(withKnobs)
 

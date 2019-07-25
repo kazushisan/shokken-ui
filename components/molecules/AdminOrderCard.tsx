@@ -21,7 +21,7 @@ interface Props {
 
 const Item = styled.div`
   padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px #eee solid;
   font-size: inherit;
 `

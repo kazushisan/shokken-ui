@@ -60,7 +60,6 @@ stories.add('AdminProductCard', () => {
   )
 })
 
-
 stories.add('MenuProductCard', () => {
   const order = {
     name: text('Name', '商品名'),
@@ -71,7 +70,7 @@ stories.add('MenuProductCard', () => {
     'src',
     'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
   )
-  
+
   return (
     <Wrap>
       <MenuProductCard

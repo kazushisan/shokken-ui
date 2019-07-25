@@ -6,7 +6,7 @@ import Input from './components/atoms/Input'
 import AdminOrderCard from './components/molecules/AdminOrderCard'
 import LoginForm from './components/molecules/LoginForm'
 import MenuProductCard from './components/molecules/MenuProductCard'
-
+import UserOrderCard from './components/molecules/UserOrderCard'
 
 // organisms
 import AdminOrderList from './components/organisms/AdminOrderList'
@@ -20,7 +20,8 @@ export const molecules: {
   AdminOrderCard: typeof AdminOrderCard
   LoginForm: typeof LoginForm
   MenuProductCard: typeof MenuProductCard
-} = { AdminOrderCard, LoginForm, MenuProductCard }
+  UserOrderCard: typeof UserOrderCard
+} = { AdminOrderCard, LoginForm, MenuProductCard, UserOrderCard }
 
 export const organisms: {
   AdminOrderList: typeof AdminOrderList

@@ -4,19 +4,9 @@ interface Props {
   color?: 'primary' | 'default'
 }
 
-// class Button extends React.Component<Props> {
-//   render() {
-//     const { children, onClick } = this.props
-//     return <button
-//       type="button"
-//       onClick={onClick}
-//     >{children}</button>
-//   }
-// }
-
 const Button = styled.button`
   background-color: ${(props: Props) =>
-    props.color === 'primary' ? '#5DB7DE' : '#eee'};
+    props.color === 'primary' ? '#333' : '#eee'};
   color: ${(props: Props) =>
     props.color === 'primary' ? '#fff' : 'rgba(#000, 0.6)'};
   display: block;
@@ -24,8 +14,8 @@ const Button = styled.button`
   width: 100%;
   position: relative;
   padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px #eee solid;
+  border-radius: 4px;
+  border: none;
   outline: none;
   margin: 0;
   font-size: inherit;

@@ -6,11 +6,15 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
+import AdminProductCard from '../components/molecules/AdminProductCard'
+import MenuProductCard from '../components/molecules/MenuProductCard'
+import UserOrderCard from '../components/molecules/UserOrderCard'
 import AdminOrderCard from '../components/molecules/AdminOrderCard'
 
 const Wrap = styled.div`
   margin: 20px;
 `
+
 const stories = storiesOf('molecules', module)
 stories.addDecorator(withKnobs)
 
@@ -29,6 +33,61 @@ stories.add('LoginForm', () => {
         label={label}
         onClick={action('send')}
       />
+    </Wrap>
+  )
+})
+
+stories.add('AdminProductCard', () => {
+  const order = {
+    product: text('product', '商品名'),
+    price: number('price', 0)
+  }
+  const priceUnit = text('priceUnit', '円')
+  const src = text(
+    'src',
+    'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
+  )
+
+  return (
+    <Wrap>
+      <AdminProductCard
+        onClick={action('click')}
+        order={order}
+        src={src}
+        priceUnit={priceUnit}
+      />
+    </Wrap>
+  )
+})
+
+stories.add('MenuProductCard', () => {
+  const order = {
+    name: text('Name', '商品名'),
+    price: number('Price', 0)
+  }
+  const priceUnit = text('priceUnit', '円')
+  const src = text(
+    'src',
+    'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
+  )
+
+  return (
+    <Wrap>
+      <MenuProductCard
+        order={order}
+        priceUnit={priceUnit}
+        src={src}
+        onClick={action('send')}
+      />
+    </Wrap>
+  )
+})
+
+stories.add('UserOrderCard', () => {
+  const id = number('Id', 0)
+  return (
+    <Wrap>
+      <UserOrderCard id={id} onClick={action('send')} />
     </Wrap>
   )
 })

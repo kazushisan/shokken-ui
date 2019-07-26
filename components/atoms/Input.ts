@@ -8,7 +8,7 @@ const Input = styled.input`
   width: 100%;
   position: relative;
   padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px #eee solid;
   outline: none;
   margin: 0;

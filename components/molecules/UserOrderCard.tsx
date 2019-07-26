@@ -26,32 +26,28 @@ class UserOrderCard extends React.Component<Props, State> {
   state = { count: 0 }
 
   plusClick = () => {
-    const { onClick, id } = this.props
+    const { onClick, order } = this.props
     const { count } = this.state
     this.setState({
       count: count + 1
     })
-    onClick(count + 1, id)
+    onClick(count + 1, order.id)
   }
 
   minusClick = () => {
-    const { onClick, id } = this.props
+    const { onClick, order } = this.props
     const { count } = this.state
     if (count > 0) {
       this.setState({
         count: count - 1
       })
-      onClick(count - 1, id)
+      onClick(count - 1, order.id)
     } else {
-      onClick(count, id)
+      onClick(count, order.id)
     }
   }
 
   render() {
-    const order = {
-      product: '商品名',
-      price: '0'
-    }
     const priceUnit = '円'
 
     const label = {
@@ -60,6 +56,7 @@ class UserOrderCard extends React.Component<Props, State> {
     }
 
     const { count } = this.state
+    const { order } = this.props
 
     return (
       <Item style={{ display: 'flex' }}>

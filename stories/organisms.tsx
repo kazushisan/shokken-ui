@@ -45,32 +45,31 @@ stories.add('AdminOrderList', () => {
 })
 
 stories.add('UserOrderList', () => {
-  const compLabel = text('compLabel', '商品完成')
-  const delLabel = text('delLabel', '削除')
   const complete = text('complete', '注文確定')
-  const names = array('names', ['ラーメン', 'うどん', 'カレー', '唐揚げ定食'])
   const ids = array('id', [1, 2, 3, 4])
-  const products = []
+  const names = array('names', ['ラーメン', 'うどん', 'カレー', '唐揚げ定食'])
+  const prices = array('prices', [300, 200, 150, 300])
+  const orders = []
 
-  for (let i = 0; i < Math.min(names.length, ids.length); i += 1) {
-    products.push({
-      name: names[i],
+  for (
+    let i = 0;
+    i < Math.min(names.length, prices.length, ids.length);
+    i += 1
+  ) {
+    orders.push({
+      product: names[i],
+      price: prices[i],
       id: ids[i]
     })
-  }
-  const label = {
-    complete: compLabel,
-    delete: delLabel
   }
 
   return (
     <Wrap>
       <UserOrderList
-        products={products}
-        label={label}
-        onComplete={action('complete')}
-        onDelete={action('delete')}
+        orders={orders}
+        onClick={action('count,id')}
         complete={complete}
+        onOrder={action('send')}
       />
     </Wrap>
   )

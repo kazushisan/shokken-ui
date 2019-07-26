@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../atoms/Button'
-import AdminOrderCard, { Order, OrderAction } from '../molecules/AdminOrderCard'
+import UserOrderCard from '../molecules/UserOrderCard'
 
 const Item = styled.div`
   margin: 8px;
@@ -11,36 +11,37 @@ const Box = styled.div`
 `
 
 interface Props {
-  products: Order[]
-  label: {
-    complete: string
-    delete: string
-  }
-  onComplete: OrderAction
-  onDelete: OrderAction
+  onOrder: (ids: number[]) => void
+  onClick: () => void
+  complete: string
+  orders: { product: string; price: number; id: number }
 }
 
 const UserOrderList = (props: Props) => {
-  const { label, products, onComplete, onDelete, complete } = props
+  const orderClick = () => {
+    const { onOrder, orders } = props
+    {orders.map(x => {
+      onOrder(x.id, x.price)
+    })}
+  }
+
+  const { onClick, complete, orders } = props
   return (
     <div>
       <Box>
-        {products.map(x => {
+        {orders.map(x => {
           return (
             <Item>
-              <AdminOrderCard
-                order={x}
-                label={label}
-                onComplete={onComplete}
-                onDelete={onDelete}
-              />
+              <UserOrderCard order={x} onClick={onClick} />
             </Item>
           )
         })}
       </Box>
-      <Button style={{margin: 8}}>
-        {complete}
-      </Button>
+      <Item>
+        <Button color="primary" onClick={orderClick}>
+          {complete}
+        </Button>
+      </Item>
     </div>
   )
 }

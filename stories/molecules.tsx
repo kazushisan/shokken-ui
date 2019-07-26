@@ -84,10 +84,14 @@ stories.add('MenuProductCard', () => {
 })
 
 stories.add('UserOrderCard', () => {
-  const id = number('Id', 0)
+  const order = {
+    product: text('product', '商品名'),
+    price: number('price', 0),
+    id: number('Id', 0)
+  }
   return (
     <Wrap>
-      <UserOrderCard id={id} onClick={action('send')} />
+      <UserOrderCard order={order} onClick={action('send')} />
     </Wrap>
   )
 })

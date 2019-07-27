@@ -38,6 +38,7 @@ class UserOrderList extends React.Component<Props, State> {
       if (x.id === id) {
         x.count = count
       }
+      return undefined
     })
     onClick(id, count)
   }
@@ -47,11 +48,12 @@ class UserOrderList extends React.Component<Props, State> {
     const { orders } = this.state
     orders.map(x => {
       onOrder(x.id, x.count)
+      return undefined
     })
   }
 
   render() {
-    const { complete, orders } = this.props
+    const { orders, complete } = this.props
     return (
       <div>
         <Box>

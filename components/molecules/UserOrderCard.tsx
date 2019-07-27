@@ -4,7 +4,7 @@ import Button from '../atoms/Button'
 
 interface Props {
   onClick: (count: number, id: number) => void
-  id: number
+  order: { product: string; price: number; id: number }
 }
 interface State {
   count: number

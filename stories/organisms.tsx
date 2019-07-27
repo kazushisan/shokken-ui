@@ -59,7 +59,8 @@ stories.add('UserOrderList', () => {
     orders.push({
       product: names[i],
       price: prices[i],
-      id: ids[i]
+      id: ids[i],
+      count: 0
     })
   }
 
@@ -67,7 +68,7 @@ stories.add('UserOrderList', () => {
     <Wrap>
       <UserOrderList
         orders={orders}
-        onClick={action('count,id')}
+        onClick={action('id,count')}
         complete={complete}
         onOrder={action('send')}
       />

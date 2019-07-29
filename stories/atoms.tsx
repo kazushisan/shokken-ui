@@ -7,6 +7,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Button from '../components/atoms/Button'
 import Input from '../components/atoms/Input'
+import AdminNavi from '../components/atoms/AdminNavi'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -29,6 +30,29 @@ stories.add('Input', () => {
   return (
     <Wrap>
       <Input color="primary" placeholder="入力してください..." />
+    </Wrap>
+  )
+})
+
+stories.add('AdminNavi', () => {
+  const Edit = text('Edit', 'Edit')
+  const Order = text('Order', 'Order')
+  const EditImg = text(
+    'EditImg',
+    'http://icooon-mono.com/i/icon_12121/icon_121211_64.png'
+  )
+  const OrderImg = text(
+    'OrderImg',
+    'http://icooon-mono.com/i/icon_12042/icon_120421_64.png'
+  )
+  return (
+    <Wrap>
+      <AdminNavi
+        Edit={Edit}
+        Order={Order}
+        EditImg={EditImg}
+        OrderImg={OrderImg}
+      />
     </Wrap>
   )
 })

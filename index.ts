@@ -1,6 +1,7 @@
 // atoms
 import Button from './components/atoms/Button'
 import Input from './components/atoms/Input'
+import AdminNavi from './components/atoms/AdminNavi'
 
 // molecules
 import AdminOrderCard from './components/molecules/AdminOrderCard'
@@ -15,7 +16,8 @@ import AdminOrderList from './components/organisms/AdminOrderList'
 export const atoms: {
   Button: typeof Button
   Input: typeof Input
-} = { Button, Input }
+  AdminNavi: typeof AdminNavi
+} = { Button, Input, AdminNavi }
 
 export const molecules: {
   AdminOrderCard: typeof AdminOrderCard

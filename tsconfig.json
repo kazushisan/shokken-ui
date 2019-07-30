@@ -10,12 +10,21 @@
     "target": "es5",
     "module": "es2015",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "./",
     "jsx": "react",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "lib": ["dom", "es2018"],
     "allowSyntheticDefaultImports": true,
     "types": []
-  }
+  },
+  "include": [
+    "components/atoms/**/*",
+    "components/molecules/**/*",
+    "components/organisms/**/*",
+    "components/GlobalStyle.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

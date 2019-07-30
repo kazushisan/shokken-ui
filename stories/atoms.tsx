@@ -35,23 +35,23 @@ stories.add('Input', () => {
 })
 
 stories.add('AdminNavi', () => {
-  const Edit = text('Edit', 'Edit')
-  const Order = text('Order', 'Order')
-  const EditImg = text(
-    'EditImg',
+  const MyPage = text('MyPage', 'MyPage')
+  const Orders = text('Orders', 'Orders')
+  const MyPageImg = text(
+    'MyPageImg',
     'http://icooon-mono.com/i/icon_12121/icon_121211_64.png'
   )
-  const OrderImg = text(
-    'OrderImg',
+  const OrdersImg = text(
+    'OrdersImg',
     'http://icooon-mono.com/i/icon_12042/icon_120421_64.png'
   )
   return (
     <Wrap>
       <AdminNavi
-        Edit={Edit}
-        Order={Order}
-        EditImg={EditImg}
-        OrderImg={OrderImg}
+        MyPage={MyPage}
+        Orders={Orders}
+        MyPageImg={MyPageImg}
+        OrdersImg={OrdersImg}
       />
     </Wrap>
   )

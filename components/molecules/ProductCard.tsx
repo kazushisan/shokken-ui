@@ -31,7 +31,7 @@ const Img = styled.div`
   border-radius: 8px 8px 0 0;
 `
 
-class MenuProductCard extends React.Component<Props> {
+class ProductCard extends React.Component<Props> {
   handleClick = () => {
     const { order, onClick } = this.props
     onClick(order.name, order.price)
@@ -60,4 +60,4 @@ class MenuProductCard extends React.Component<Props> {
   }
 }
 
-export default MenuProductCard
+export default ProductCard

@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
-import MenuProductCard from '../components/molecules/MenuProductCard'
+import ProductCard from '../components/molecules/ProductCard'
 import UserOrderCard from '../components/molecules/UserOrderCard'
 import AdminOrderCard from '../components/molecules/AdminOrderCard'
 
@@ -36,7 +36,7 @@ stories.add('LoginForm', () => {
   )
 })
 
-stories.add('MenuProductCard', () => {
+stories.add('ProductCard', () => {
   const order = {
     name: text('Name', '商品名'),
     price: number('Price', 0)
@@ -49,7 +49,7 @@ stories.add('MenuProductCard', () => {
 
   return (
     <Wrap>
-      <MenuProductCard
+      <ProductCard
         order={order}
         priceUnit={priceUnit}
         src={src}

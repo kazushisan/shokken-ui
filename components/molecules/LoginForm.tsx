@@ -10,21 +10,21 @@ const Item = styled.div`
 interface Props {
   placeholder: {
     name: string
-    pass: string
+    password: string
   }
   label: string
-  onClick: (name: string, pass: string) => void
+  onClick: (name: string, password: string) => void
 }
 
 interface State {
   name: string
-  pass: string
+  password: string
 }
 
 class LoginForm extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
-    this.state = { name: '', pass: '' }
+    this.state = { name: '', password: '' }
   }
 
   handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,23 +35,23 @@ class LoginForm extends React.Component<Props, State> {
 
   handlePass = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
-      pass: event.target.value
+      password: event.target.value
     })
   }
 
   handleClick = () => {
-    const { name, pass } = this.state
+    const { name, password } = this.state
     const { onClick } = this.props
-    onClick(name, pass)
+    onClick(name, password)
     this.setState({
       name: '',
-      pass: ''
+      password: ''
     })
   }
 
   render() {
     const { placeholder, label } = this.props
-    const { name, pass } = this.state
+    const { name, password } = this.state
 
     return (
       <div>
@@ -65,8 +65,8 @@ class LoginForm extends React.Component<Props, State> {
         <Item>
           <Input
             type="password"
-            placeholder={placeholder.pass}
-            value={pass}
+            placeholder={placeholder.password}
+            value={password}
             onChange={this.handlePass}
           />
         </Item>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AdminOrderCard, { Order, OrderAction } from '../molecules/AdminOrderCard'
+import AdminOrderCard, { Order, OrderAction } from '../molecules/QueueCard'
 
 const Item = styled.div`
   margin: 8px;
@@ -19,7 +19,7 @@ interface Props {
   onDelete: OrderAction
 }
 
-const AdminOrderList = (props: Props) => {
+const Queue = (props: Props) => {
   const { label, products, onComplete, onDelete } = props
   return (
     <Box>
@@ -39,4 +39,4 @@ const AdminOrderList = (props: Props) => {
   )
 }
 
-export default AdminOrderList
+export default Queue

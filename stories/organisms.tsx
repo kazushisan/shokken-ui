@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, text, array } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
-import AdminOrderList from '../components/organisms/AdminOrderList'
+import Queue from '../components/organisms/Queue'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -33,7 +33,7 @@ stories.add('AdminOrderList', () => {
 
   return (
     <Wrap>
-      <AdminOrderList
+      <Queue
         products={products}
         label={label}
         onComplete={action('complete')}

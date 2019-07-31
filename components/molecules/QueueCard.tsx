@@ -26,7 +26,7 @@ const Item = styled.div`
   font-size: inherit;
 `
 
-const AdminOrderCard = (props: Props) => {
+const QueueCard: React.SFC<Props> = (props: Props) => {
   const completeClick = () => {
     const { order, onComplete } = props
     onComplete(order)
@@ -67,4 +67,4 @@ const AdminOrderCard = (props: Props) => {
   )
 }
 
-export default AdminOrderCard
+export default QueueCard

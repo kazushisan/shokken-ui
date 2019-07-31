@@ -8,7 +8,7 @@ import { withKnobs, text, number } from '@storybook/addon-knobs'
 import LoginForm from '../components/molecules/LoginForm'
 import ProductCard from '../components/molecules/ProductCard'
 import OrderCard from '../components/molecules/OrderCard'
-import AdminOrderCard from '../components/molecules/AdminOrderCard'
+import QueueCard from '../components/molecules/QueueCard'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -67,7 +67,7 @@ stories.add('OrderCard', () => {
   )
 })
 
-stories.add('AdminOrderCard', () => {
+stories.add('QueueCard', () => {
   const orderProduct = text('orderName', '注文商品名')
   const orderId = number('orderId', 0)
   const compLabel = text('compLabel', '商品完成')
@@ -85,7 +85,7 @@ stories.add('AdminOrderCard', () => {
 
   return (
     <Wrap>
-      <AdminOrderCard
+      <QueueCard
         order={order}
         label={label}
         onComplete={action('complete')}

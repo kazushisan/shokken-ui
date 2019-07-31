@@ -21,7 +21,6 @@ const Item = styled.div`
 
 const Content = styled.div`
   flex: 1 0 0;
-
 `
 
 const FlexButton = styled(Button)`
@@ -33,19 +32,11 @@ const FlexButton = styled(Button)`
 const QueueCard: React.SFC<Props> = (props: Props) => {
   return (
     <Item style={{ display: 'flex' }}>
-      <Content>
-        {props.children}
-      </Content>
-      <FlexButton
-        color="primary"
-        onClick={props.onComplete}
-      >
+      <Content>{props.children}</Content>
+      <FlexButton color="primary" onClick={props.onComplete}>
         {props.label.complete}
       </FlexButton>
-      <FlexButton
-        color="danger"
-        onClick={props.onDelete}
-      >
+      <FlexButton color="danger" onClick={props.onDelete}>
         {props.label.delete}
       </FlexButton>
     </Item>

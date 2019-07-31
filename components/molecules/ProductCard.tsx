@@ -38,9 +38,7 @@ const ProductCard: React.SFC<Props> = (props: Props) => {
       <Img
         style={{ backgroundImage: `url('${props.src}')`, textAlign: 'center' }}
       />
-      <Contents>
-        {props.children || null}
-      </Contents>
+      <Contents>{props.children || null}</Contents>
     </Item>
   )
 }

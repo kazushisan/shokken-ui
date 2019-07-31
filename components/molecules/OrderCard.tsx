@@ -30,15 +30,11 @@ const FlexButton = styled(Button)`
 const OrderCard: React.SFC<Props> = (props: Props) => {
   return (
     <Item>
-      <Content>
-        {props.children}
-      </Content>
+      <Content>{props.children}</Content>
       <FlexButton color="primary" onClick={props.add}>
         +
       </FlexButton>
-      <FlexButton onClick={props.substract}>
-        -
-      </FlexButton>
+      <FlexButton onClick={props.substract}>-</FlexButton>
     </Item>
   )
 }

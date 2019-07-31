@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
-import { withKnobs, text, number } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
 import ProductCard from '../components/molecules/ProductCard'
@@ -44,10 +44,7 @@ stories.add('ProductCard', () => {
 
   return (
     <Wrap>
-      <ProductCard
-        src={src}
-        onClick={action('send')}
-      >
+      <ProductCard src={src} onClick={action('send')}>
         商品名と値段
       </ProductCard>
     </Wrap>
@@ -57,10 +54,7 @@ stories.add('ProductCard', () => {
 stories.add('OrderCard', () => {
   return (
     <Wrap>
-      <OrderCard
-        add={action('add')}
-        substract={action('substract')}
-      >
+      <OrderCard add={action('add')} substract={action('substract')}>
         商品名と金額
       </OrderCard>
     </Wrap>

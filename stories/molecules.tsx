@@ -7,7 +7,7 @@ import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
 import ProductCard from '../components/molecules/ProductCard'
-import UserOrderCard from '../components/molecules/UserOrderCard'
+import OrderCard from '../components/molecules/OrderCard'
 import AdminOrderCard from '../components/molecules/AdminOrderCard'
 
 const Wrap = styled.div`
@@ -54,11 +54,15 @@ stories.add('ProductCard', () => {
   )
 })
 
-stories.add('UserOrderCard', () => {
-  const id = number('Id', 0)
+stories.add('OrderCard', () => {
   return (
     <Wrap>
-      <UserOrderCard id={id} onClick={action('send')} />
+      <OrderCard
+        add={action('add')}
+        substract={action('substract')}
+      >
+        商品名と金額
+      </OrderCard>
     </Wrap>
   )
 })

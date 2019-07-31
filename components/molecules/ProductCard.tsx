@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 interface Props {
   src: string
-  children: React.ReactNode
+  children: React.ReactNode | null
   onClick: () => void
 }
 

@@ -29,6 +29,7 @@ const Button = styled.button`
   outline: none;
   margin: 0;
   font-size: inherit;
+  cursor: pointer;
 
   &:active {
     opacity: 0.4;

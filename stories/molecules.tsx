@@ -6,7 +6,6 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
-import AdminProductCard from '../components/molecules/AdminProductCard'
 import MenuProductCard from '../components/molecules/MenuProductCard'
 import UserOrderCard from '../components/molecules/UserOrderCard'
 import AdminOrderCard from '../components/molecules/AdminOrderCard'
@@ -32,29 +31,6 @@ stories.add('LoginForm', () => {
         placeholder={placeholder}
         label={label}
         onClick={action('send')}
-      />
-    </Wrap>
-  )
-})
-
-stories.add('AdminProductCard', () => {
-  const order = {
-    product: text('product', '商品名'),
-    price: number('price', 0)
-  }
-  const priceUnit = text('priceUnit', '円')
-  const src = text(
-    'src',
-    'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
-  )
-
-  return (
-    <Wrap>
-      <AdminProductCard
-        onClick={action('click')}
-        order={order}
-        src={src}
-        priceUnit={priceUnit}
       />
     </Wrap>
   )

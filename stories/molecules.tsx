@@ -68,29 +68,20 @@ stories.add('OrderCard', () => {
 })
 
 stories.add('QueueCard', () => {
-  const orderProduct = text('orderName', '注文商品名')
-  const orderId = number('orderId', 0)
-  const compLabel = text('compLabel', '商品完成')
-  const delLabel = text('delLabel', '削除')
-
-  const order = {
-    name: orderProduct,
-    id: orderId
-  }
-
   const label = {
-    complete: compLabel,
-    delete: delLabel
+    complete: text('label.complete', '商品完成'),
+    delete: text('label.delete', '削除')
   }
 
   return (
     <Wrap>
       <QueueCard
-        order={order}
         label={label}
         onComplete={action('complete')}
         onDelete={action('delete')}
-      />
+      >
+        キューのアイテム
+      </QueueCard>
     </Wrap>
   )
 })

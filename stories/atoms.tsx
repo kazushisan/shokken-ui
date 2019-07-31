@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { withKnobs, text, select } from '@storybook/addon-knobs'
 
 import Button from '../components/atoms/Button'
 import Input from '../components/atoms/Input'
@@ -16,9 +16,10 @@ stories.addDecorator(withKnobs)
 
 stories.add('Button', () => {
   const label = text('Label', 'ボタンのラベル')
+  const color = select('color', ['primary', 'danger', 'default'], 'primary')
   return (
     <Wrap>
-      <Button color="primary" onClick={action('clicked')}>
+      <Button color={color} onClick={action('clicked')}>
         {label}
       </Button>
     </Wrap>
@@ -28,7 +29,7 @@ stories.add('Button', () => {
 stories.add('Input', () => {
   return (
     <Wrap>
-      <Input color="primary" placeholder="入力してください..." />
+      <Input placeholder="入力してください..." />
     </Wrap>
   )
 })

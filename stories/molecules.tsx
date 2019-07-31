@@ -3,13 +3,12 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 // import { linkTo } from '@storybook/addon-links'
-import { withKnobs, text, number } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 
 import LoginForm from '../components/molecules/LoginForm'
-import AdminProductCard from '../components/molecules/AdminProductCard'
-import MenuProductCard from '../components/molecules/MenuProductCard'
-import UserOrderCard from '../components/molecules/UserOrderCard'
-import AdminOrderCard from '../components/molecules/AdminOrderCard'
+import ProductCard from '../components/molecules/ProductCard'
+import OrderCard from '../components/molecules/OrderCard'
+import QueueCard from '../components/molecules/QueueCard'
 
 const Wrap = styled.div`
   margin: 20px;
@@ -23,7 +22,7 @@ stories.add('LoginForm', () => {
 
   const placeholder = {
     name: text('placeholder.name', 'ユーザー名を入力してください'),
-    pass: text('placeholder.pass', 'パスワードを入力してください')
+    password: text('placeholder.password', 'パスワードを入力してください')
   }
 
   return (
@@ -37,12 +36,7 @@ stories.add('LoginForm', () => {
   )
 })
 
-stories.add('AdminProductCard', () => {
-  const order = {
-    product: text('product', '商品名'),
-    price: number('price', 0)
-  }
-  const priceUnit = text('priceUnit', '円')
+stories.add('ProductCard', () => {
   const src = text(
     'src',
     'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
@@ -50,72 +44,38 @@ stories.add('AdminProductCard', () => {
 
   return (
     <Wrap>
-      <AdminProductCard
-        onClick={action('click')}
-        order={order}
-        src={src}
-        priceUnit={priceUnit}
-      />
+      <ProductCard src={src} onClick={action('send')}>
+        商品名と値段
+      </ProductCard>
     </Wrap>
   )
 })
 
-stories.add('MenuProductCard', () => {
-  const order = {
-    name: text('Name', '商品名'),
-    price: number('Price', 0)
-  }
-  const priceUnit = text('priceUnit', '円')
-  const src = text(
-    'src',
-    'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
-  )
-
+stories.add('OrderCard', () => {
   return (
     <Wrap>
-      <MenuProductCard
-        order={order}
-        priceUnit={priceUnit}
-        src={src}
-        onClick={action('send')}
-      />
+      <OrderCard add={action('add')} substract={action('substract')}>
+        商品名と金額
+      </OrderCard>
     </Wrap>
   )
 })
 
-stories.add('UserOrderCard', () => {
-  const id = number('Id', 0)
-  return (
-    <Wrap>
-      <UserOrderCard id={id} onClick={action('send')} />
-    </Wrap>
-  )
-})
-
-stories.add('AdminOrderCard', () => {
-  const orderProduct = text('orderName', '注文商品名')
-  const orderId = number('orderId', 0)
-  const compLabel = text('compLabel', '商品完成')
-  const delLabel = text('delLabel', '削除')
-
-  const order = {
-    name: orderProduct,
-    id: orderId
-  }
-
+stories.add('QueueCard', () => {
   const label = {
-    complete: compLabel,
-    delete: delLabel
+    complete: text('label.complete', '商品完成'),
+    delete: text('label.delete', '削除')
   }
 
   return (
     <Wrap>
-      <AdminOrderCard
-        order={order}
+      <QueueCard
         label={label}
         onComplete={action('complete')}
         onDelete={action('delete')}
-      />
+      >
+        キューのアイテム
+      </QueueCard>
     </Wrap>
   )
 })

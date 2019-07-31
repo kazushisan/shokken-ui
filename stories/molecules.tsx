@@ -62,17 +62,13 @@ stories.add('OrderCard', () => {
 })
 
 stories.add('QueueCard', () => {
-  const label = {
-    complete: text('label.complete', '商品完成'),
-    delete: text('label.delete', '削除')
-  }
+  const label = text('label.complete', '商品完成')
 
   return (
     <Wrap>
       <QueueCard
         label={label}
-        onComplete={action('complete')}
-        onDelete={action('delete')}
+        onClick={action('click')}
       >
         キューのアイテム
       </QueueCard>

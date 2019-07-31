@@ -4,12 +4,8 @@ import Button from '../atoms/Button'
 
 interface Props {
   children: React.ReactNode | null
-  label: {
-    complete: string
-    delete: string
-  }
-  onComplete: () => void
-  onDelete: () => void
+  label: string
+  onClick: () => void
 }
 
 const Item = styled.div`
@@ -33,11 +29,8 @@ const QueueCard: React.SFC<Props> = (props: Props) => {
   return (
     <Item style={{ display: 'flex' }}>
       <Content>{props.children}</Content>
-      <FlexButton color="primary" onClick={props.onComplete}>
-        {props.label.complete}
-      </FlexButton>
-      <FlexButton color="danger" onClick={props.onDelete}>
-        {props.label.delete}
+      <FlexButton color="primary" onClick={props.onClick}>
+        {props.label}
       </FlexButton>
     </Item>
   )

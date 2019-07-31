@@ -2,13 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 interface Props {
-  order: {
-    name: string
-    price: number
-  }
   src: string
-  priceUnit: string
-  onClick: (product: string, price: number) => void
+  children: React.ReactNode
+  onClick: () => void
 }
 
 const Item = styled.div`
@@ -17,9 +13,6 @@ const Item = styled.div`
   border-radius: 8px;
   border: 1px #eee solid;
   font-size: inherit;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 `
 
 const Img = styled.div`
@@ -27,37 +20,29 @@ const Img = styled.div`
   background-position: center;
   background-size: cover;
   width: 100%;
-  padding-top: 75%;
+  padding-top: 100%;
   border-radius: 8px 8px 0 0;
 `
 
-class ProductCard extends React.Component<Props> {
-  handleClick = () => {
-    const { order, onClick } = this.props
-    onClick(order.name, order.price)
-  }
+const Contents = styled.div`
+  text-align: center;
+  margin: 32px 16px;
+`
 
-  render() {
-    const { src, order, priceUnit } = this.props
-
-    return (
-      <Item
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onClick={this.handleClick}
-      >
-        <Img
-          style={{ backgroundImage: `url('${src}')`, textAlign: 'center' }}
-        />
-        <div style={{ flex: '1 0 0', textAlign: 'center', marginTop: 16 }}>
-          <p>{order.name}</p>
-          <p>
-            {order.price}
-            {priceUnit}
-          </p>
-        </div>
-      </Item>
-    )
-  }
+const ProductCard: React.SFC<Props> = (props: Props) => {
+  return (
+    <Item
+      style={{ display: 'flex', flexDirection: 'column' }}
+      onClick={props.onClick}
+    >
+      <Img
+        style={{ backgroundImage: `url('${props.src}')`, textAlign: 'center' }}
+      />
+      <Contents>
+        {props.children || null}
+      </Contents>
+    </Item>
+  )
 }
 
 export default ProductCard

@@ -37,11 +37,6 @@ stories.add('LoginForm', () => {
 })
 
 stories.add('ProductCard', () => {
-  const order = {
-    name: text('Name', '商品名'),
-    price: number('Price', 0)
-  }
-  const priceUnit = text('priceUnit', '円')
   const src = text(
     'src',
     'http://www.at-s.com/gourmet/featured/ramen/2019/images/125760.jpg'
@@ -50,11 +45,11 @@ stories.add('ProductCard', () => {
   return (
     <Wrap>
       <ProductCard
-        order={order}
-        priceUnit={priceUnit}
         src={src}
         onClick={action('send')}
-      />
+      >
+        商品名と値段
+      </ProductCard>
     </Wrap>
   )
 })

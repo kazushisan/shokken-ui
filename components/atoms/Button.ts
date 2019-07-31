@@ -16,7 +16,9 @@ const Button = styled.button`
     }
   }};
   color: ${(props: Props) =>
-    props.color === 'primary' || props.color === 'danger' ? '#fff' : 'rgba(#000, 0.6)'};
+    props.color === 'primary' || props.color === 'danger'
+      ? '#fff'
+      : 'rgba(#000, 0.6)'};
   display: block;
   box-sizing: border-box;
   width: 100%;

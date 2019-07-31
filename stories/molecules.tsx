@@ -23,7 +23,7 @@ stories.add('LoginForm', () => {
 
   const placeholder = {
     name: text('placeholder.name', 'ユーザー名を入力してください'),
-    pass: text('placeholder.pass', 'パスワードを入力してください')
+    password: text('placeholder.password', 'パスワードを入力してください')
   }
 
   return (
